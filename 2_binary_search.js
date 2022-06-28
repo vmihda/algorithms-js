@@ -26,4 +26,18 @@ function binarySearch(arr, item) {
 	return position
 }
 
+function recursiveBinarySearch(arr, item, start, end) {
+	const middle = Math.floor((start + end) / 2);
+	if (arr[middle] === item) {
+		return middle
+	}
+
+	if (arr[middle] > item) {
+		return recursiveBinarySearch(arr, item, middle + 1, end)
+	} else {
+		return recursiveBinarySearch(arr, item, start, middle - 1)
+	}
+}
+
 console.log(binarySearch(list, 8))
+console.log(recursiveBinarySearch(list, 8, 0 , list.length))
